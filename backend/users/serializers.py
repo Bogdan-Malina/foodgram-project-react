@@ -27,6 +27,10 @@ class FollowRecipeSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'image', 'cooking_time')
 
 
+def get_recipes_count(obj):
+    return obj.recipes.count()
+
+
 class CustomUserSerializer(UserSerializer):
     is_subscribed = serializers.SerializerMethodField()
     recipes = serializers.SerializerMethodField()
@@ -54,12 +58,9 @@ class CustomUserSerializer(UserSerializer):
 
     def get_recipes(self, obj):
         if self.context:
-            limit = self.context['request'].query_params.get('recipes_limit')
+            limit = self.context('request').query_params.get('recipes_limit')
             if limit is None:
                 recipes = obj.recipes.all()
             else:
                 recipes = obj.recipes.all()[:int(limit)]
             return FollowRecipeSerializer(recipes, many=True).data
-
-    def get_recipes_count(self, obj):
-        return obj.recipes.count()

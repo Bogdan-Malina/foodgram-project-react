@@ -96,14 +96,6 @@ class RecipeSerializer(serializers.ModelSerializer):
         data = super().to_representation(instance)
         return data
 
-    # def shopping_cart(self, request, pk=None):
-    #     print()
-    #     # if request.method == 'POST':
-    #     #     return self.add_obj(Cart, request.user, pk)
-    #     # elif request.method == 'DELETE':
-    #     #     return self.delete_obj(Cart, request.user, pk)
-    #     # return None
-
     def validate(self, data):
         ingredients = self.initial_data.get('ingredients')
         if not ingredients:

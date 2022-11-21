@@ -16,7 +16,7 @@ from pathlib import Path
 import backend
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['http://51.250.77.186']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-$+ih+p@=gn8=97dnb_658p=1p$g1m=u$@!367)u_&6-1$1us91
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['backend', '127.0.0.1']
+ALLOWED_HOSTS = ['backend', '51.250.77.186']
 
 
 # Application definition

@@ -10,8 +10,8 @@ services:
       - ./.env
 
   backend:
-    build: ../backend/
-#    image: habo3hnk/foodgram_backend
+#    build: ../backend/
+    image: habo3hnk/foodgram_backend
     restart: always
     volumes:
       - static_value:/app/static/
@@ -22,10 +22,10 @@ services:
       - ./.env
 
   frontend:
-    build:
-      context: ../frontend
-      dockerfile: Dockerfile
-#    image: habo3hnk/foodgram_frontend
+#    build:
+#      context: ../frontend
+#      dockerfile: Dockerfile
+    image: habo3hnk/foodgram_frontend
     volumes:
       - ../frontend/:/app/result_build/
     depends_on:

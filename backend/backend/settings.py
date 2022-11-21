@@ -10,7 +10,8 @@ SECRET_KEY = 'django-insecure-$+ih+p@=gn8=97dnb_658p=1p$g1m=u$@!367)u_&6-1$1us91
 DEBUG = True
 
 # ALLOWED_HOSTS = ['backend', '51.250.77.186']
-ALLOWED_HOSTS = ['51.250.77.186']
+# ALLOWED_HOSTS = ['51.250.77.186']
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -61,17 +62,25 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
+#
+# DATABASES = {
+#     'default': {
+#         'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
+#         'NAME': os.getenv('DB_NAME', 'postgres'),
+#         'USER': os.getenv('POSTGRES_USER', 'postgres'),
+#         'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'postgres'),
+#         'HOST': os.getenv('DB_HOST', 'db'),
+#         'PORT': os.getenv('DB_PORT', 5432)
+#     }
+# }
 
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
-        'NAME': os.getenv('DB_NAME', 'postgres'),
-        'USER': os.getenv('POSTGRES_USER', 'postgres'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'postgres'),
-        'HOST': os.getenv('DB_HOST', 'db'),
-        'PORT': os.getenv('DB_PORT', 5432)
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
 
 
 AUTH_PASSWORD_VALIDATORS = [

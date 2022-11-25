@@ -5,7 +5,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 CSRF_TRUSTED_ORIGINS = ['http://51.250.77.186']
 
-SECRET_KEY = 'django-insecure-$+ih+p@=gn8=97dnb_658p=1p$g1m=u$@!367)u_&6-1$1us91'
+SECRET_KEY = os.environ.get('DJ_SECRET_KEY'),
 
 DEBUG = True
 
@@ -63,7 +63,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-#
 DATABASES = {
     'default': {
         'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
@@ -74,14 +73,6 @@ DATABASES = {
         'PORT': os.getenv('DB_PORT', 5432)
     }
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 
 
 AUTH_PASSWORD_VALIDATORS = [

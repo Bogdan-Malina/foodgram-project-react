@@ -5,7 +5,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 CSRF_TRUSTED_ORIGINS = ['http://51.250.77.186']
 
-SECRET_KEY = os.environ.get('DJ_SECRET_KEY'),
+SECRET_KEY = os.getenv('DJ_SECRET_KEY'),
 
 DEBUG = True
 

@@ -43,20 +43,21 @@ class IngredientAmountSerializer(serializers.ModelSerializer):
 
 
 def is_in_favorited_and_shopping_card(data, user):
-    is_in_favorited = Recipes.objects.filter(
-        favorites__user=user,
-        id=data.id
-    ).exists()
+    if user.is_authenticated:
+        is_in_favorited = Recipes.objects.filter(
+            favorites__user=user,
+            id=data.id
+        ).exists()
 
-    if is_in_favorited:
-        data.is_favorited = is_in_favorited
+        if is_in_favorited:
+            data.is_favorited = is_in_favorited
 
-    is_shopping_cart = Recipes.objects.filter(
-        cart__user=user,
-        id=data.id
-    ).exists()
-    if is_shopping_cart:
-        data.is_in_shopping_cart = is_shopping_cart
+        is_shopping_cart = Recipes.objects.filter(
+            cart__user=user,
+            id=data.id
+        ).exists()
+        if is_shopping_cart:
+            data.is_in_shopping_cart = is_shopping_cart
     return data
 
 

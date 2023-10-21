@@ -12,7 +12,7 @@ git clone https://github.com/Bogdan-Malina/foodgram-project-react.git
 ```
 cd foodgram-project-react/infra
 ```
-Cоздайте файл .env с переменными:
+В папке infra создайте и заполните .env файл:
 
 ```
 DB_ENGINE='django.db.backends.postgresql'

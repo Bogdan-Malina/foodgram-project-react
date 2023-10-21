@@ -30,8 +30,6 @@ docker-compose up --build
 ```
 Зайдите в контейнер infra_backend_1
 ```
-docker container ls
-
 docker exec -it infra_backend_1 bash
 ```
 Сделайте миграции
